@@ -1,0 +1,15 @@
+* Text to Dimensions
+
+This is a node for use with [[https://github.com/invoke-ai/InvokeAI][InvokeAI]] and with the (advanced) [[https://github.com/mickr777/textfontimage][text-font-image]] node for controlling where to put text.
+
+This node takes as its input:
+
+ 1. The path to a TTF font file.
+ 2. A font size.
+ 3. A line of text.
+
+It outputs the width and height of the bounding box of that text, when rendered in the given font at the given size (rounded to integers).
+
+This is mostly useful in things like centering text in an image.  A sample workflow ([[center-text.json][center-text.json]]) is included that will output an image with the text centered at any given height.
+
+*NOTE*: The =getbbox()= method from PIL apparently does not correctly deal with newlines, so attempting to make a multiline message using ~\\n~ characters will not work.  The text will simply be considered a longer single line.
